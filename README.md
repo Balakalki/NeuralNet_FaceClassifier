@@ -4,15 +4,15 @@
 
 # Face Classifier Neural Network
 # Overview
-This project implements a neural network-based face classifier from scratch using Python. It includes two main classes: Layer and Network, which handle the construction and training of the neural network. The Layer class represents individual layers in the network, while the Network class manages the overall network architecture and training process.
+ This project implements a neural network-based face classifier from scratch using Python. It includes two main classes: Layer and Network, which handle the construction and training of the neural network. The Layer class represents individual layers in the network, while the Network class manages the overall network architecture and training process.
 
 
 # Dataset
 
-The dataset consists of 1872 images of 20 individuals with different facial expressions and poses. Each image is preprocessed to a size of 64x64 pixels before being fed into the neural network.
+ The dataset consists of 1872 images of 20 individuals with different facial expressions and poses. Each image is preprocessed to a size of 64x64 pixels before being fed into the neural network.
 
 **Additional Information:**
-The dataset is provided in CSV format, with each row representing an image and its corresponding label. Each image is represented as a flattened array of 4096 pixels (64x64), stored in the columns of the CSV file. Additionally, there is an extra column to store the labels of each image, where:
+ The dataset is provided in CSV format, with each row representing an image and its corresponding label. Each image is represented as a flattened array of 4096 pixels (64x64), stored in the columns of the CSV file. Additionally, there is an extra column to store the labels of each image, where:
 
 - 0 represents the face is facing to the left
 
@@ -27,7 +27,7 @@ The dataset was created by processing grayscale images from [this source](https:
 
 
 # Model Architecture
-The neural network architecture comprises 6 layers, including 4 hidden layers, one input layer, and one output layer. The hidden layers utilize ReLU activation function to introduce non-linearity, while the output layer employs softmax activation function for multi-class classification.
+ The neural network architecture comprises 6 layers, including 4 hidden layers, one input layer, and one output layer. The hidden layers utilize ReLU activation function to introduce non-linearity, while the output layer employs softmax activation function for multi-class classification.
 
 **Output Layer:**
 The output layer consists of four neurons, each representing one direction in which the face is facing: left, right, up, and straight. The labels in the dataset correspond to these directions, with 0 representing left, 1 representing right, 2 representing up, and 3 representing straight.
@@ -45,68 +45,82 @@ After training the model, it achieved the best results with the 6-layer architec
 # Usage
 **1. Clone the Repository:**
    
-git clone https://github.com/Balakalki/NeuralNet_FaceClassifier.git
+ git clone https://github.com/Balakalki/NeuralNet_FaceClassifier.git
 
 **2. Navigate to the Project Directory:**
    
-cd NeuralNet_FaceClassifier
+ cd NeuralNet_FaceClassifier
 
 **3. Install Dependencies:**
    
-Ensure you have Python installed on your system. Install the required libraries using pip:
+ Ensure you have Python installed on your system. Install the required libraries using pip:
 
-pip install numpy pandas
+ pip install numpy pandas
 
 **4. Create and Train the Neural Network:**
    
--> Define the network architecture by setting the number of layers and neurons per layer in the Network class constructor.
+- Define the network architecture by setting the number of layers and neurons per layer in the Network class constructor. For example, if you want to create a 6-layer network with the following architecture:
 
--> Initialize the network using the Create_Network method, specifying the number of input neurons.
+  - Layer 1: 64x64 input neurons
+  - Layer 2: 1024 neurons
+  - Layer 3: 512 neurons
+  - Layer 4: 256 neurons
+  - Layer 5: 128 neurons
+  - Output Layer: 4 neurons
 
--> Train the network by calling the fit method with the input data and target labels, along with the desired number of epochs and learning rate.
-
-*Example:*
-
-#Create the network object
-
-neural_network = Network(nLayers=3)
-
-#Define the architecture and train the network
-
-neural_network.Create_Network(nInputs=64*64)
-
-neural_network.fit(input_datas, target_labels, epochs=100, learning_rate=0.01)
+  You can initialize the network as follows:
+  
+ python
+ 
+ *Create the network object*
+ 
+ neural_network = Network(nLayers=6)
+ 
+ *Define the architecture and train the network*
+ 
+ neural_network.Create_Network(nInputs=64*64)
+ 
+ neural_network.Create_Network(1024)  # Layer 2
+ 
+ neural_network.Create_Network(512)   # Layer 3
+ 
+ neural_network.Create_Network(256)   # Layer 4
+ 
+ neural_network.Create_Network(128)   # Layer 5
+ 
+ neural_network.Create_Network(4)     # Output Layer
+  
 
 
 **5. Evaluate Accuracy:**
 
-After training the model, you can evaluate its accuracy on the test dataset using the calculate_accuracy method. Pass the test data and corresponding labels to this method to obtain the accuracy.
+ After training the model, you can evaluate its accuracy on the test dataset using the calculate_accuracy method. Pass the test data and corresponding labels to this method to obtain the accuracy.
 
-*Example:*
+ *Example:*
 
-#Calculate accuracy
+ #Calculate accuracy
 
-accuracy = neural_network.calculate_accuracy(xtest, ytest)
+ accuracy = neural_network.calculate_accuracy(xtest, ytest)
 
-print("Accuracy:", accuracy)
+ print("Accuracy:", accuracy)
 
 
 **6. Make Predictions:**
 
-Once the network is trained, you can use it to make predictions on new facial images. Pass the input data to the forwardPass method of the Network object to obtain the predicted outputs.
+ Once the network is trained, you can use it to make predictions on new facial images. Pass the input data to the forwardPass method of the Network object to obtain the predicted outputs.
 
-*Example:*
+ *Example:*
 
-#Make predictions
+ #Make predictions
 
-prediction = neural_network.forwardPass(input_data)
+ prediction = neural_network.forwardPass(input_data)
 
-print("Prediction:", prediction)
+ print("Prediction:", prediction)
 
 
 **7. Explore and Customize:**
 
-Feel free to explore and customize the network architecture, activation functions, and training parameters according to your requirements.
+ Feel free to explore and customize the network architecture, activation functions, and training parameters according to your requirements.
 
 
 # Contributors
