@@ -1,0 +1,6 @@
+enter number of layers6
+enter number of neurons of Layer 2 1024
+enter number of neurons of Layer 3 512
+enter number of neurons of Layer 4 256
+enter number of neurons of Layer 5 128
+enter number of neurons in output layer 4
