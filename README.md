@@ -1,15 +1,26 @@
 # NeuralNet_FaceClassifier
- An AI project using neural networks built from scratch in Python (with NumPy and Pandas) for facial image classification. Dive into deep learning and explore facial recognition techniques.
+ An ML project using a fully customizable Artificial Neural Network (ANN) built from scratch in Python (with NumPy and Pandas). Designed to handle various classification tasks, including facial image recognition and handwritten digit classification.
 
 
-# Face Classifier Neural Network
+# ANN-Based Classifier
 # Overview
- This project implements a neural network-based face classifier from scratch using Python. It includes two main classes: Layer and Network, which handle the construction and training of the neural network. The Layer class represents individual layers in the network, while the Network class manages the overall network architecture and training process.
+ This project implements a neural network-based classifier from scratch using Python. It includes two main classes: Layer and Network, which handle the construction and training of the neural network. The Layer class represents individual layers in the network, while the Network class manages the overall network architecture and training process. The model is adaptable and can be used for multiple classification tasks by modifying input attributes.
 
 
 # Dataset
 
- The dataset consists of 1872 images of 20 individuals with different facial expressions and poses. Each image is preprocessed to a size of 64x64 pixels before being fed into the neural network.
+ The model has been tested on multiple datasets, demonstrating its ability to generalize across different domains
+
+# Face Classification Dataset
+
+Consists of 1872 images of 20 individuals with different facial expressions and poses.
+Images are preprocessed to a size of 64x64 pixels.
+Stored in CSV format with each row representing a flattened array of 4096 pixels (64x64) along with a corresponding label.
+Labels indicate face orientation:
+0: Left-facing
+1: Right-facing
+2: Upward-facing
+3: Straight-facing
 
 **Additional Information:**
  The dataset is provided in CSV format, with each row representing an image and its corresponding label. Each image is represented as a flattened array of 4096 pixels (64x64), stored in the columns of the CSV file. Additionally, there is an extra column to store the labels of each image, where:
@@ -25,22 +36,25 @@
 
 The dataset was created by processing grayscale images from [this source](https://www.cs.cmu.edu/afs/cs.cmu.edu/project/theo-8/faceimages/faces), which provides 20 folders with corresponding person names. The original images in the URL are in PGM format, and they were resized to 64x64 pixels before being processed into the CSV file.
 
+# MNIST Handwritten Digits Dataset
+Consists of 70,000 grayscale images of handwritten digits (0-9), each of size 28x28 pixels.
+Preprocessed into a flattened format for compatibility with the neural network.
+The model achieved 90%+ accuracy on the MNIST dataset, showcasing its adaptability for digit classification tasks.
 
 # Model Architecture
- The neural network architecture comprises 6 layers, including 4 hidden layers, one input layer, and one output layer. The hidden layers utilize ReLU activation function to introduce non-linearity, while the output layer employs softmax activation function for multi-class classification.
+The neural network consists of six layers, including four hidden layers, one input layer, and one output layer:
 
-**Output Layer:**
-The output layer consists of four neurons, each representing one direction in which the face is facing: left, right, up, and straight. The labels in the dataset correspond to these directions, with 0 representing left, 1 representing right, 2 representing up, and 3 representing straight.
+Input Layer: Accepts input features (e.g., 64x64 for face classification, 28x28 for MNIST).
+Hidden Layers: Utilize ReLU activation function to introduce non-linearity.
+Output Layer: Uses Softmax activation function for multi-class classification.
 
-
-
-# Training and Testing
-The dataset is split into training and testing sets using the train_test_split function. The model is trained on the training set and evaluated on the testing set to assess its performance.
+The number of neurons in each layer can be customized depending on the dataset and classification task.
 
 # Results
 
-After training the model, it achieved the best results with the 6-layer architecture. The trained model demonstrates the ability to classify facial images accurately, distinguishing between different individuals and facial expressions. The network achieved an impressive accuracy of 99% on the test dataset, showcasing its effectiveness in face classification tasks.
-
+Successfully classifies facial orientations with high accuracy.
+Demonstrates strong generalization capabilities across different datasets.
+Can be adapted for any classification problem requiring an ANN-based approach.
 
 # Usage
 **1. Clone the Repository:**
@@ -59,13 +73,10 @@ After training the model, it achieved the best results with the 6-layer architec
 
 **4. Create and Train the Neural Network:**
    
-- Define the network architecture by setting the number of layers and neurons per layer in the Network class constructor. For example, if you want to create a 6-layer network with the following architecture:
+- Define the network architecture by setting the number of layers and neurons per layer in the Network class constructor. For example, if you want to create a 3-layer network with the following architecture:
 
   - Layer 1: 64x64 input neurons
-  - Layer 2: 1024 neurons
   - Layer 3: 512 neurons
-  - Layer 4: 256 neurons
-  - Layer 5: 128 neurons
   - Output Layer: 4 neurons
 
   You can initialize the network as follows:
@@ -78,15 +89,9 @@ After training the model, it achieved the best results with the 6-layer architec
  
  *Define the architecture and train the network*
  
- neural_network.Create_Network(nInputs=64*64)
+ neural_network.Create_Network(nInputs=64*64) # Input Layer
  
- neural_network.Create_Network(1024)  # Layer 2
- 
- neural_network.Create_Network(512)   # Layer 3
- 
- neural_network.Create_Network(256)   # Layer 4
- 
- neural_network.Create_Network(128)   # Layer 5
+ neural_network.Create_Network(512)   # Layer 2
  
  neural_network.Create_Network(4)     # Output Layer
   
@@ -120,7 +125,7 @@ After training the model, it achieved the best results with the 6-layer architec
 
 **7. Explore and Customize:**
 
- Feel free to explore and customize the network architecture, activation functions, and training parameters according to your requirements.
+ Modify the network architecture, activation functions, and training parameters to adapt to different classification tasks.
 
 
 # Contributors
