@@ -1,4 +1,7 @@
+import pandas as pd
 import numpy as np
+
+
 '''Layer class which stores
   Layer weights matrix,
   Layer bias ,
@@ -152,6 +155,21 @@ class Network:
         print(f"Epoch {epoch + 1} / {epochs}, Error: {total_error/len(input_datas)}")
 
 
+# data collection
+data = pd.read_csv('/content/drive/MyDrive/ml_lab/MLAssignment/final_data_64_64.csv')
+# print(data)
+
+Y = data.iloc[:, :1].values.flatten()
+X = data.iloc[:, 1:].values
+
+max_number = max(max(sublist) for sublist in X)
+result_list = [[element / max_number for element in sublist] for sublist in X]
+# print(result_list[0][0])
+from sklearn.model_selection import train_test_split
+xtrain, xtest, ytrain, ytest = train_test_split(result_list,Y, test_size=0.3, random_state=42)
+
+
+# network creation
 nLayers=int(input("enter number of layers"))
 obj=Network(nLayers)  #object for Network class
 obj.Create_Network(4096)  #creates a network by creating layers and appending to Layers list in Network class (this takes input length as argument)
