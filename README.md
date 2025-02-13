@@ -42,10 +42,10 @@ Preprocessed into a flattened format for compatibility with the neural network.
 The model achieved 90%+ accuracy on the MNIST dataset, showcasing its adaptability for digit classification tasks.
 
 # Model Architecture
-The neural network consists of six layers, including four hidden layers, one input layer, and one output layer:
+The neural network consists of four layers, including one hidden layers, one input layer, and one output layer:
 
 Input Layer: Accepts input features (e.g., 64x64 for face classification, 28x28 for MNIST).
-Hidden Layers: Utilize ReLU activation function to introduce non-linearity.
+Hidden Layers: Utilize ReLU activation function to introduce non-linearity.                    
 Output Layer: Uses Softmax activation function for multi-class classification.
 
 The number of neurons in each layer can be customized depending on the dataset and classification task.
