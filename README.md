@@ -57,21 +57,9 @@ Demonstrates strong generalization capabilities across different datasets.
 Can be adapted for any classification problem requiring an ANN-based approach.
 
 # Usage
-**1. Clone the Repository:**
-   
- git clone https://github.com/Balakalki/NeuralNet_FaceClassifier.git
+**1. Run the code in google colab first you have to run the Network.py file:**
 
-**2. Navigate to the Project Directory:**
-   
- cd NeuralNet_FaceClassifier
-
-**3. Install Dependencies:**
-   
- Ensure you have Python installed on your system. Install the required libraries using pip:
-
- pip install numpy pandas
-
-**4. Create and Train the Neural Network:**
+**2. Create the Neural Network:**
    
 - Define the network architecture by setting the number of layers and neurons per layer in the Network class constructor. For example, if you want to create a 3-layer network with the following architecture:
 
@@ -95,9 +83,9 @@ Can be adapted for any classification problem requiring an ANN-based approach.
  
  neural_network.Create_Network(4)     # Output Layer
   
+**3. next run the train.py shell to train the model**
 
-
-**5. Evaluate Accuracy:**
+**4. Evaluate Accuracy:**
 
  After training the model, you can evaluate its accuracy on the test dataset using the calculate_accuracy method. Pass the test data and corresponding labels to this method to obtain the accuracy.
 
@@ -105,12 +93,10 @@ Can be adapted for any classification problem requiring an ANN-based approach.
 
  #Calculate accuracy
 
- accuracy = neural_network.calculate_accuracy(xtest, ytest)
-
- print("Accuracy:", accuracy)
+ run the code in test.py in colab after training
 
 
-**6. Make Predictions:**
+**5. Make Predictions:**
 
  Once the network is trained, you can use it to make predictions on new facial images. Pass the input data to the forwardPass method of the Network object to obtain the predicted outputs.
 
@@ -123,7 +109,7 @@ Can be adapted for any classification problem requiring an ANN-based approach.
  print("Prediction:", prediction)
 
 
-**7. Explore and Customize:**
+**6. Explore and Customize:**
 
  Modify the network architecture, activation functions, and training parameters to adapt to different classification tasks.
 
