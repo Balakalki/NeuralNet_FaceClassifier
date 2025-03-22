@@ -1,5 +1,5 @@
 # NeuralNet_FaceClassifier
- An ML project using a fully customizable Artificial Neural Network (ANN) built from scratch in Python (with NumPy and Pandas). Designed to handle various classification tasks, including facial image recognition and handwritten digit classification.
+ An ML project using a fully customizable Artificial Neural Network (ANN) built from scratch in Python (with NumPy and Pandas). Designed to handle various classification tasks, including facial image recognition and handwritten digit classification. Initially build for Face Classification
 
 
 # ANN-Based Classifier
@@ -57,7 +57,7 @@ Demonstrates strong generalization capabilities across different datasets.
 Can be adapted for any classification problem requiring an ANN-based approach.
 
 # Usage
-**1. Run the code in google colab first you have to run the Network.py file:**
+**1. Navigate to google colab ANN_(Mnist and Face Classifier)**
 
 **2. Create the Neural Network:**
    
