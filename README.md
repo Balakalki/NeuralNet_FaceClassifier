@@ -83,7 +83,7 @@ Can be adapted for any classification problem requiring an ANN-based approach.
  
  neural_network.Create_Network(4)     # Output Layer
   
-**3. next run the train.py shell to train the model**
+**3. next run the shell in colab which is calling fit method**
 
 **4. Evaluate Accuracy:**
 
@@ -93,7 +93,7 @@ Can be adapted for any classification problem requiring an ANN-based approach.
 
  #Calculate accuracy
 
- run the code in test.py in colab after training
+ run the accuracy shell in colab after training
 
 
 **5. Make Predictions:**
